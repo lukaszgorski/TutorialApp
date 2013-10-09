@@ -3,6 +3,7 @@ package tutoriallapp;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@Inject
+	private Mails mails;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +41,7 @@ public class Servlet1 extends HttpServlet {
             out.println("<title>Servlet Servlet1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Servlet1 at   " + "AA" + "</h1>");
+            out.println("<h1>Servlet Servlet1... at   " + mails.getMail() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {            
